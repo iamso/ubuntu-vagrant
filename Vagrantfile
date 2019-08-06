@@ -1,8 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-BOX_NAME = ENV["BOX_NAME"] || "xenial"
-BOX_URI = ENV["BOX_URI"] || "https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-vagrant.box"
+BOX_NAME = ENV["BOX_NAME"] || "bionic"
+BOX_URI = ENV["BOX_URI"] || "https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64-vagrant.box"
 BOX_MEMORY = ENV["BOX_MEMORY"] || "2048"
 BOX_CPU = ENV["BOX_CPU"] || "2"
 BOX_DOMAIN = ENV["BOX_DOMAIN"] || "test.me"
@@ -26,5 +26,5 @@ Vagrant::configure("2") do |config|
     vb.customize ["modifyvm", :id, "--cpus", BOX_CPU]
   end
 
-  config.vm.provision :shell, :inline => "SSH_KEY=your@email.tld bash <(curl -sk https://raw.githubusercontent.com/iamso/ubuntu-kickstart/master/kickstart-vagrant.sh)"
+  config.vm.provision :shell, :inline => "SSH_KEY=your@email.tld bash <(curl -sk https://raw.githubusercontent.com/iamso/ubuntu-kickstart/master/kickstart-vagrant-18.04.sh)"
 end
